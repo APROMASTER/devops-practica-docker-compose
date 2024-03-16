@@ -1,13 +1,14 @@
 version: '3'
 
 services:
-  app:
+  php:
     build:
       context: ./php-app
+      dockerfile: Dockerfile
     volumes:
-      - ./php-app:/app
+      - ./php-app:/var/www/html
     ports:
-      - "3088:80"
+      - "8088:80"
     environment:
       - DB_HOST=${DB_HOST}
       - DB_USERNAME=${DB_USERNAME}
